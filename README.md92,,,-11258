@@ -6,6 +6,15 @@
 
 <!---
 Aakash351/Aakash351 is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
-You can click the Preview link to take a look at your changes.
---->8423669297
+You can click the Preview link to take a look at your changes.for i in $(seq 28 -1 15);
+    do n=$((i+1));
+    fi=$(echo $i-*.md);
+    fn=$(echo $fi | sed -e "s/${i}-/${n}-/");
+    git mv $fi $fn;
+    perl -pi -e "s/^order: $i\$/order: $n/" $fn;
+done
+
+# 28 is the current last page.
+# 15 is the page to insert before.
+# Iterate backwards to ensure there's only one page with each index at a time.
 
